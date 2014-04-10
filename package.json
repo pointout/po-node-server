@@ -1,0 +1,19 @@
+{
+    "name": "pushtact-server",
+    "version": "0.0.0",
+    "description": "",
+    "main": "web.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "logfmt": "^1.1.2",
+        "express": "^3.5.1",
+        "q": "^1.0.1",
+        "apn": "^1.2.5",
+        "iron_mq": "^0.2.3",
+        "node-uuid": "^1.4"
+    }
+}
