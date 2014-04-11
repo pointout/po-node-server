@@ -91,8 +91,15 @@ app.post('/request/respond', function (req, res) {
             'recipientId': recipientId
         }}},
         {w:1},
-    function(err){
-        console.log(err);
+    function(err, items){
+        console.log(err, items);
+
+        db.collection('requests').findOne(
+            {_id: require('mongodb').ObjectID(requestId)},
+            function(err, item){
+                console.log(item);
+                sendIOSNotification(response, item.device);
+            });
     });
 
     res.send({'success': true});
@@ -127,11 +134,11 @@ app.post('/request/list', function (req, res) {
         'device': device
     }).toArray(function(err, items){
         console.log(items);
-        response.push(items);
+        items.forEach(function(item) {
+            response.push(item);
+        });
+        res.send({'success': true, 'response': response});
     });
-
-    res.send({'success': true, 'response': response});
-
 });
 
 
@@ -203,6 +210,4 @@ function sendIOSNotification(message, device) {
     apnConnection.pushNotification(note, myDevice);
 
     console.log("Sent : " + message + " to " + device);
-
-    res.send('Hello World!');
 }
