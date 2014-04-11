@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title #{title} - My Site
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="http://code.jquery.com/jquery-latest.min.js")
+    script.
+       $(document).ready(function(){
+          $("#pointoutButton").click(function() {
+            $.post( "/request/respond", {
+              "requestId": "#{requestId}",
+              "recipientId": "#{recipientId}",
+              "response": $("#response").val()
+            }, function( data ) {
+              alert("Thank you");
+            });
+          });
+       });
+
+  body
+    header
+      h1 Pointout
+    .container
+      .main-content
+        block content
