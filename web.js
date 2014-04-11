@@ -65,7 +65,7 @@ app.post('/request/create', function (req, res) {
         sendMail(
                 address,
                 "Could you pointout a good " + req.body.subject + " around " + req.body.location,
-                "http://localhost:5000/request/" + requestId + "/" + recipientId
+                "http://pointout.to/request/" + requestId + "/" + recipientId
         );
     });
 
