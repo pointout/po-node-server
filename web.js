@@ -43,6 +43,8 @@ app.post('/request/create', function (req, res) {
 
     var recipients = {};
 
+    console.log(req.body);
+
     req.body.recipients.forEach(function (item) {
        var id = uuid.v4();
        recipients[id] = item;
