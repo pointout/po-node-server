@@ -1,108 +1,100 @@
-doctype html
-html
-  head
+<!DOCTYPE html>
+<html>
+<head>
 
+    <meta charset="UTF-8">
+    <title>PointOut</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
 
-  <meta charset="UTF-8">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+    <script>
+        var autocomplete;
+        var map_reference;
+        function pointout_button_click_handler() {
+            var response = {};
+            response["map_reference"] = map_reference;
+            $.post("/request/respond", {
+                "requestId": "534b7c3b129875020087c84f",
+                "recipientId": "cefe8814-d7a1-4112-ba1f-1c649d999b87",
+                "response": $("#response").val()
+            }, function (data) {
+                alert("Thank you");
+            });
 
-  <title>PointOut</title>
+        }
 
-  <meta name="viewport" content="width=device-width">
+        function initialize() {
 
-  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+            $("#pointout-button").click(pointout_button_click_handler);
 
-  <style>
-
-
-</style>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>
-    var autocomplete;
-    var map_reference;
-    function pointout_button_click_handler(){
-           var response = {};
-           response["map_reference"] = map_reference;
-           $.post( "/request/respond", {
-             "requestId": "534b7c3b129875020087c84f",
-             "recipientId": "cefe8814-d7a1-4112-ba1f-1c649d999b87",
-             "response": $("#response").val()
-           }, function( data ) {
-             alert("Thank you");
-           });
-       
-    }
-    
-    function initialize() {
-
-         	$("#pointout-button").click(pointout_button_click_handler);
-   
             var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
-            var geolocation  = new google.maps.LatLng(13.6500000, 79.4166700);
+            var geolocation = new google.maps.LatLng(13.6500000, 79.4166700);
             var defaultBounds = new google.maps.LatLngBounds(
-                      geolocation,
-                      geolocation);
-            
+                    geolocation,
+                    geolocation);
+
             var options = {
-                 bounds: defaultBounds
+                bounds: defaultBounds
             };
 
-            
+
             autocomplete = new google.maps.places.Autocomplete(input, options);
-            
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                         
-                          
-                          var place = autocomplete.getPlace();
-                          map_reference = place.reference;
 
-                          var address = '';
-                          if (place.address_components) {
-                            address = [
-                              (place.address_components[0] && place.address_components[0].short_name || ''),
-                              (place.address_components[1] && place.address_components[1].short_name || ''),
-                              (place.address_components[2] && place.address_components[2].short_name || '')
-                            ].join(' ');
-                          }
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
 
 
-                         // alert(place.name + " address " + address);
-      });
-    }
-</script>
+                var place = autocomplete.getPlace();
+                map_reference = place.reference;
+
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                        (place.address_components[0] && place.address_components[0].short_name || ''),
+                        (place.address_components[1] && place.address_components[1].short_name || ''),
+                        (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
+                }
+
+
+                // alert(place.name + " address " + address);
+            });
+        }
+    </script>
 </head>
 <body onload="initialize()">
 
 
-  <header>
+<header>
     <h2>PointOut a Local Service</h2>
+
     <div>Your friend abcd has asked for a good "Restaurant" near "Hitech City, Hyderabad"</div>
-  </header>
+</header>
 
 
-  <br/>
-  <br/>
-      <div>
-        <input id="pac-input" class="controls" type="text" placeholder="Enter a location"><br/>  
-     </div>
+<br/>
+<br/>
 
-  <br/>
+<div>
+    <input id="pac-input" class="controls" type="text" placeholder="Enter a location"><br/>
+</div>
 
-
-
-    <div>
-      <textarea id="Field4" name="Field4" spellcheck="true" rows="4" cols="10" tabindex="4" placeholder="Enter your comments..."></textarea>
-    </div>
+<br/>
 
 
+<div>
+    <textarea id="Field4" name="Field4" spellcheck="true" rows="4" cols="10" tabindex="4"
+              placeholder="Enter your comments..."></textarea>
+</div>
 
- <br/>
 
-  <a id="pointout-button" class="button" href="javascript:void(0);">PointOut!</a>
+<br/>
+
+<a id="pointout-button" class="button" href="javascript:void(0);">PointOut!</a>
 </body>
-
 
 
 </html>

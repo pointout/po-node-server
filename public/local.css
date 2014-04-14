@@ -1,36 +1,33 @@
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-  body {
+body {
     padding: 20px 15%;
     background-image: url(http://subtlepatterns.com/patterns/ricepaper.png);
     width: 100%;
     height: 100%
-  }
+}
 
-
-  legend {
+legend {
     width: 25%;
     float: left;
     padding-right: 10px;
-  }
+}
 
-  fieldset {
+fieldset {
     border: 0;
     padding: 0;
-  }
+}
 
-
-
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
 
     legend {
-      width: 100%;
-      float: none;
-      margin: 0 0 5px 0;
+        width: 100%;
+        float: none;
+        margin: 0 0 5px 0;
     }
 
     input[type=text],
@@ -39,89 +36,87 @@
     input[type=password],
     textarea,
     select {
-      width: 100%; 
+        width: 100%;
     }
-  }
-  @media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
     form > div > label,
     legend {
-      text-align: right;
+        text-align: right;
     }
 
+    textarea {
+        background-color: #fff;
+        padding: 0 11px 0 13px;
+        width: 30%;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        text-overflow: ellipsis;
+    }
 
-  textarea {
-      width: 400px;
-      background-color: #fff;
-      padding: 0 11px 0 13px;
-      width: 30%;
-      font-family: Roboto;
-      font-size: 15px;
-      font-weight: 300;
-      text-overflow: ellipsis;
-  }
- 
-
-  textarea:focus {
-      outline: 0;
-      border-color: #4697e4;
-      margin-left: -1px;
-      padding-left: 14px;  /* Regular padding-left + 1. */
-      width: 30.5%;
-  }
+    textarea:focus {
+        outline: 0;
+        border-color: #4697e4;
+        margin-left: -1px;
+        padding-left: 14px; /* Regular padding-left + 1. */
+        width: 30.5%;
+    }
 
     #pac-input {
-      width: 400px;
-
-      background-color: #fff;
-      padding: 0 11px 0 13px;
-      width: 30%;
-      font-family: Roboto;
-      font-size: 15px;
-      font-weight: 300;
-      text-overflow: ellipsis;
+        background-color: #fff;
+        padding: 0 11px 0 13px;
+        width: 30%;
+        font-family: Roboto, serif;
+        font-size: 15px;
+        font-weight: 300;
+        text-overflow: ellipsis;
     }
 
     #pac-input:focus {
-      outline: 0;
-      border-color: #4697e4;
-      margin-left: -1px;
-      padding-left: 14px;  /* Regular padding-left + 1. */
-      width: 30.5%;
+        outline: 0;
+        border-color: #4697e4;
+        margin-left: -1px;
+        padding-left: 14px; /* Regular padding-left + 1. */
+        width: 30.5%;
     }
 
     .pac-container {
-      font-family: Roboto;
-      padding:;
+        font-family: Roboto, serif;
     }
 
     .button {
-       border-top: 1px solid #e05e5e;
-       background: #d67665;
-       background: -webkit-gradient(linear, left top, left bottom, from(#cc7c26), to(#d67665));
-       background: -webkit-linear-gradient(top, #cc7c26, #d67665);
-       background: -moz-linear-gradient(top, #cc7c26, #d67665);
-       background: -ms-linear-gradient(top, #cc7c26, #d67665);
-       background: -o-linear-gradient(top, #cc7c26, #d67665);
-       padding: 5.5px 11px;
-       -webkit-border-radius: 8px;
-       -moz-border-radius: 8px;
-       border-radius: 8px;
-       -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-       -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-       box-shadow: rgba(0,0,0,1) 0 1px 0;
-       text-shadow: rgba(0,0,0,.4) 0 1px 0;
-       color: white;
-       font-size: 12px;
-       font-family: Helvetica, Arial, Sans-Serif;
-       text-decoration: none;
-       vertical-align: middle;
-       }
+        border-top: 1px solid #e05e5e;
+        background: #d67665;
+        background: -webkit-gradient(linear, left top, left bottom, from(#cc7c26), to(#d67665));
+        background: -webkit-linear-gradient(top, #cc7c26, #d67665);
+        background: -moz-linear-gradient(top, #cc7c26, #d67665);
+        background: -ms-linear-gradient(top, #cc7c26, #d67665);
+        background: -o-linear-gradient(top, #cc7c26, #d67665);
+        padding: 5.5px 11px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+        text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+        color: white;
+        font-size: 12px;
+        font-family: Helvetica, Arial, Sans-Serif;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
     .button:hover {
-       border-top-color: #785429;
-       background: #785429;
-       color: #cccccc;
-       }
+        border-top-color: #785429;
+        background: #785429;
+        color: #cccccc;
+    }
+
     .button:active {
-       border-top-color: #5c371b;
-       background: #5c371b;
-       }
+        border-top-color: #5c371b;
+        background: #5c371b;
+    }
+}
